@@ -1,0 +1,16 @@
+micronaut:
+  application:
+    name: helloApp
+  server:
+    port: 8084
+r2dbc:
+  datasources:
+    default:
+      url: r2dbc:postgresql://localhost:5432/hello
+      username: postgres
+      password: postgres123
+      dialect: POSTGRES
+netty:
+  default:
+    allocator:
+      max-order: 3

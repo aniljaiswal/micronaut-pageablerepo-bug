@@ -7,8 +7,8 @@ r2dbc:
   datasources:
     default:
       url: r2dbc:postgresql://localhost:5432/hello
-      username: postgres
-      password: postgres123
+      username: cogoport
+      password: cogoport123
       dialect: POSTGRES
 netty:
   default:

@@ -1,6 +1,5 @@
 package hello.app
 
-import io.micronaut.data.annotation.Query
 import io.micronaut.data.model.Page
 import io.micronaut.data.model.Pageable
 import io.micronaut.http.annotation.Controller
@@ -24,5 +23,10 @@ class PersonController {
     suspend fun create(): Person {
         val name = "John Doe"
         return personService.addPerson(name)
+    }
+
+    @Get(uri = "/list", produces = ["application/json"])
+    suspend fun list(): List<Person> {
+        return personService.list()
     }
 }

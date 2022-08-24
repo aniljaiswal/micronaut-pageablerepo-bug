@@ -3,6 +3,7 @@ package hello.app
 import io.micronaut.data.model.Page
 import io.micronaut.data.model.Pageable
 import jakarta.inject.Singleton
+import kotlinx.coroutines.flow.toList
 import javax.transaction.Transactional
 
 @Singleton
@@ -24,5 +25,9 @@ open class PersonService(private val personRepository: PersonRepository) {
 
     open suspend fun list(searchTerm: String, pageable: Pageable): Page<Person> {
         return personRepository.findByNameIlikeOrderByIdDesc(searchTerm, pageable)
+    }
+
+    open suspend fun list(): List<Person> {
+        return personRepository.findAll().toList()
     }
 }
